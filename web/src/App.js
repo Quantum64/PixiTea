@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
 import 'pixi.js';
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import * as engine from 'exports-loader?main!../../target/generated/js/teavm/classes';
 
 class App extends Component {
+
+  injectPixiContext(element) {
+    if (element && element.children.length <= 0) {
+      engine();
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <div ref={element => this.injectPixiContext(element)} />
     );
   }
 }
