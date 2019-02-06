@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import 'pixi.js';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import * as engine from 'exports-loader?main!../../target/generated/js/teavm/classes';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+engine();

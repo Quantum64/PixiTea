@@ -24,6 +24,11 @@
 						<encoding>UTF-8</encoding>
 						<annotationProcessorPaths>
 							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+								<version>1.16.16</version>
+							</path>
+							<path>
 								<groupId>com.google.dagger</groupId>
 								<artifactId>dagger-compiler</artifactId>
 								<version>2.15</version>
@@ -32,11 +37,6 @@
 								<groupId>com.google.auto.factory</groupId>
 								<artifactId>auto-factory</artifactId>
 								<version>1.0-beta5</version>
-							</path>
-							<path>
-								<groupId>org.projectlombok</groupId>
-								<artifactId>lombok</artifactId>
-								<version>1.16.16</version>
 							</path>
 						</annotationProcessorPaths>
 						<forceJavacCompilerUse>true</forceJavacCompilerUse>

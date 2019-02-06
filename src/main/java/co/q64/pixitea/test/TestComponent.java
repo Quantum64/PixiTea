@@ -2,12 +2,11 @@ package co.q64.pixitea.test;
 
 import javax.inject.Singleton;
 
-import co.q64.pixitea.PixiTea;
-import co.q64.pixitea.inject.DefaultModule;
+import co.q64.pixitea.impl.inject.EasyFullScreenModule;
 import dagger.Component;
 
 @Singleton
-@Component(modules = { DefaultModule.class })
+@Component(modules = { EasyFullScreenModule.class })
 public interface TestComponent {
-	public PixiTea getPixiTea();
+	public Test getTest();
 }

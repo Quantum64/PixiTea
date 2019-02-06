@@ -5,7 +5,7 @@ import javax.inject.Singleton;
 
 import org.teavm.jso.JSBody;
 
-import co.q64.pixitea.api.Logger;
+import co.q64.pixitea.api.util.Logger;
 
 @Singleton
 public class ConsoleLogger implements Logger {
@@ -14,9 +14,9 @@ public class ConsoleLogger implements Logger {
 	
 	@Override
 	public void log(String message) {
-		consoleLog(message);
+		log0(message);
 	}
 
 	@JSBody(params = { "message" }, script = "console.log(message)")
-	private static native void consoleLog(String message);
+	private static native void log0(String message);
 }
