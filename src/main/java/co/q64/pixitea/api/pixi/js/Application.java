@@ -25,9 +25,11 @@ public interface Application extends JSObject {
 	public @JSProperty Rectangle getScreen();
 
 	public @JSProperty Stage getStage();
-	
+
+	public @JSProperty Ticker getTicker();
+
 	public @JSProperty void setResizeTo(Window window);
-	
+
 	public @JSProperty void setResizeTo(HTMLElement element);
 
 	public void render();

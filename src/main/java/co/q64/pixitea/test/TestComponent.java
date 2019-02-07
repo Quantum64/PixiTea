@@ -6,7 +6,7 @@ import co.q64.pixitea.impl.inject.EasyFullScreenModule;
 import dagger.Component;
 
 @Singleton
-@Component(modules = { EasyFullScreenModule.class })
+@Component(modules = { TestModule.class, EasyFullScreenModule.class })
 public interface TestComponent {
 	public Test getTest();
 }

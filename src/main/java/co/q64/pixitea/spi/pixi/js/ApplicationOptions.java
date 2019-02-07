@@ -7,12 +7,9 @@ import co.q64.pixitea.api.annotation.SPI;
 
 @SPI
 public interface ApplicationOptions extends JSObject {
-	@JSProperty
-	public int getWidth();
-	
-	@JSProperty
-	public int getHeight();
-	
-	@JSProperty
-	public boolean isTransparent();
+	public @JSProperty int getWidth();
+
+	public @JSProperty int getHeight();
+
+	public @JSProperty boolean isTransparent();
 }

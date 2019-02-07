@@ -8,12 +8,9 @@ import co.q64.pixitea.spi.pixi.js.Tickable;
 
 @API
 public interface Ticker extends JSObject {
-	@JSMethod
-	public void start();
-	
-	@JSMethod
-	public void stop();
-	
-	@JSMethod
-	public void add(Tickable tickable);
+	public @JSMethod void start();
+
+	public @JSMethod void stop();
+
+	public @JSMethod void add(Tickable tickable);
 }

@@ -12,7 +12,9 @@ import co.q64.pixitea.api.pixi.ContainerFactory;
 import co.q64.pixitea.api.pixi.GraphicsFactory;
 import co.q64.pixitea.api.pixi.Stage;
 import co.q64.pixitea.api.pixi.js.Application;
+import co.q64.pixitea.api.pixi.js.Loader;
 import co.q64.pixitea.api.pixi.js.PIXI;
+import co.q64.pixitea.api.pixi.js.Ticker;
 import co.q64.pixitea.api.util.Logger;
 import co.q64.pixitea.impl.ApplicationLoaderImpl;
 import co.q64.pixitea.impl.ApplicationStarterImpl;
@@ -22,6 +24,7 @@ import co.q64.pixitea.impl.pixi.ApplicationOptionsBuilderImpl;
 import co.q64.pixitea.impl.pixi.ContainerFactoryImpl;
 import co.q64.pixitea.impl.pixi.GraphicsFactoryImpl;
 import co.q64.pixitea.impl.util.ConsoleLogger;
+import co.q64.pixitea.spi.Game;
 import co.q64.pixitea.spi.pixi.js.ApplicationOptions;
 import co.q64.pixitea.spi.pixi.js.Tickable;
 import dagger.Binds;
@@ -45,6 +48,7 @@ public interface DefaultModule {
 	@Binds @IntoSet Tickable bindInternalTicker(InternalTicker internalTicker);
 	
 	@BindsOptionalOf ApplicationOptions bindApplicationOptions();
+	@BindsOptionalOf Game bindGame();
 	
 	// @formatter:on
 
@@ -58,6 +62,14 @@ public interface DefaultModule {
 
 	public static @Provides Stage provideStage(Application application) {
 		return application.getStage();
+	}
+
+	public static @Provides Loader provideLoader(Application application) {
+		return application.getLoader();
+	}
+
+	public static @Provides Ticker provideTicker(Application application) {
+		return application.getTicker();
 	}
 
 	public static final class JsPIXIProviders { // ???
