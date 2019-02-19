@@ -10,17 +10,17 @@ import org.teavm.jso.dom.html.HTMLCanvasElement;
 
 import co.q64.teagame.api.util.Logger;
 import co.q64.teagame.web.api.ApplicationStarter;
-import co.q64.teagame.web.api.pixi.ApplicationFactory;
-import co.q64.teagame.web.api.pixi.js.Application;
-import co.q64.teagame.web.spi.pixi.js.ApplicationOptions;
+import co.q64.teagame.web.js.api.pixi.JsApplicationFactory;
+import co.q64.teagame.web.js.api.pixi.js.JsApplication;
+import co.q64.teagame.web.js.spi.pixi.JsApplicationOptions;
 
 @Singleton
 public class ApplicationStarterImpl implements ApplicationStarter {
 	protected @Inject Logger logger;
-	protected @Inject Optional<ApplicationOptions> options;
-	protected @Inject ApplicationFactory applicationFactory;
+	protected @Inject Optional<JsApplicationOptions> options;
+	protected @Inject JsApplicationFactory applicationFactory;
 
-	private Application application;
+	private JsApplication application;
 
 	protected @Inject ApplicationStarterImpl() {}
 
@@ -32,7 +32,7 @@ public class ApplicationStarterImpl implements ApplicationStarter {
 	}
 
 	@Override
-	public void start(Application application) {
+	public void start(JsApplication application) {
 		if (this.application != null) {
 			throw new RuntimeException("Cannot start application multiple times.");
 		}
@@ -41,7 +41,7 @@ public class ApplicationStarterImpl implements ApplicationStarter {
 	}
 
 	@Override
-	public Application getApplication() {
+	public JsApplication getApplication() {
 		if (application == null) {
 			throw new RuntimeException("Application was provided before starting. Move post-initialization code into a Lazy<> injector or re-inject.");
 		}

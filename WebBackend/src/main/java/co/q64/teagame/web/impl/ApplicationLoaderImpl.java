@@ -8,16 +8,16 @@ import javax.inject.Singleton;
 
 import co.q64.teagame.spi.Game;
 import co.q64.teagame.web.api.ApplicationLoader;
-import co.q64.teagame.web.api.pixi.js.Loader;
-import co.q64.teagame.web.api.pixi.js.Ticker;
-import co.q64.teagame.web.spi.pixi.js.Tickable;
+import co.q64.teagame.web.js.api.pixi.js.JsLoader;
+import co.q64.teagame.web.js.api.pixi.js.JsTicker;
+import co.q64.teagame.web.js.spi.pixi.JsTickable;
 
 @Singleton
 public class ApplicationLoaderImpl implements ApplicationLoader {
 	protected @Inject Optional<Game> game;
-	protected @Inject Loader loader;
-	protected @Inject Ticker ticker;
-	protected @Inject Set<Tickable> tickables;
+	protected @Inject JsLoader loader;
+	protected @Inject JsTicker ticker;
+	protected @Inject Set<JsTickable> tickables;
 
 	protected @Inject ApplicationLoaderImpl() {}
 
@@ -32,7 +32,7 @@ public class ApplicationLoaderImpl implements ApplicationLoader {
 
 	private void start() {
 		game.get().initialization();
-		for (Tickable tickable : tickables) {
+		for (JsTickable tickable : tickables) {
 			ticker.add(tickable);
 		}
 	}

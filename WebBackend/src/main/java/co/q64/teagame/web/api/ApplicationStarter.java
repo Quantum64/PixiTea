@@ -1,11 +1,11 @@
 package co.q64.teagame.web.api;
 
 import co.q64.teagame.api.annotation.API;
-import co.q64.teagame.web.api.pixi.js.Application;
+import co.q64.teagame.web.js.api.pixi.js.JsApplication;
 
 @API
 public interface ApplicationStarter {
-	public void start(Application application);
+	public void start(JsApplication application);
 	
-	public Application getApplication();
+	public JsApplication getApplication();
 }

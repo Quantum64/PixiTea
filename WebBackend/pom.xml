@@ -9,7 +9,6 @@
 		<version>1.0</version>
 	</parent>
 	<artifactId>WebBackend</artifactId>
-	<version>1.0</version>
 	<build>
 		<sourceDirectory>${basedir}/src/main/java</sourceDirectory>
 		<finalName>WebBackend</finalName>

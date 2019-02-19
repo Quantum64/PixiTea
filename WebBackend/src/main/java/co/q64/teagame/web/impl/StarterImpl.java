@@ -13,16 +13,16 @@ import co.q64.teagame.api.binders.ApplicationBinders.BaseConstantBinders.Transpa
 import co.q64.teagame.api.binders.ApplicationBinders.BaseConstantBinders.Width;
 import co.q64.teagame.web.api.ApplicationLoader;
 import co.q64.teagame.web.api.ApplicationStarter;
-import co.q64.teagame.web.api.pixi.ApplicationFactory;
-import co.q64.teagame.web.api.pixi.ApplicationOptionsBuilder;
-import co.q64.teagame.web.spi.pixi.js.ApplicationOptions;
+import co.q64.teagame.web.js.api.pixi.JsApplicationFactory;
+import co.q64.teagame.web.js.api.pixi.JsApplicationOptionsBuilder;
+import co.q64.teagame.web.js.spi.pixi.JsApplicationOptions;
 
 @Singleton
 public class StarterImpl implements Starter {
-	protected @Inject ApplicationOptionsBuilder optionsBuilder;
+	protected @Inject JsApplicationOptionsBuilder optionsBuilder;
 	protected @Inject ApplicationStarter applicationStarter;
 	protected @Inject ApplicationLoader applicationLoader;
-	protected @Inject ApplicationFactory applicationFactory;
+	protected @Inject JsApplicationFactory applicationFactory;
 	protected @Inject @Width Optional<Integer> width;
 	protected @Inject @Height Optional<Integer> height;
 	protected @Inject @Transparent Optional<Boolean> transparent;
@@ -31,7 +31,7 @@ public class StarterImpl implements Starter {
 
 	@Override
 	public void start() {
-		ApplicationOptions options = optionsBuilder.withWidth(width.orElse(Window.current().getInnerWidth())).withHeight(height.orElse(Window.current().getInnerHeight())).transparent(transparent.orElse(false)).build();
+		JsApplicationOptions options = optionsBuilder.withWidth(width.orElse(Window.current().getInnerWidth())).withHeight(height.orElse(Window.current().getInnerHeight())).transparent(transparent.orElse(false)).build();
 		applicationStarter.start(applicationFactory.create(options));
 		applicationLoader.load();
 	}
